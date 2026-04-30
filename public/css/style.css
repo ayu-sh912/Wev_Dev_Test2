@@ -1,0 +1,135 @@
+:root {
+  --ink: #102033;
+  --accent: #ff8a3d;
+  --accent-2: #1d4ed8;
+  --surface: rgba(255, 255, 255, 0.92);
+  --surface-strong: #ffffff;
+  --border: rgba(16, 32, 51, 0.12);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(255, 138, 61, 0.18), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(29, 78, 216, 0.18), transparent 26%),
+    linear-gradient(180deg, #f8fbff 0%, #eef3f9 100%);
+}
+
+a {
+  text-decoration: none;
+}
+
+.app-navbar {
+  background: rgba(10, 20, 35, 0.88);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(10, 20, 35, 0.18);
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  box-shadow: 0 24px 60px rgba(16, 32, 51, 0.14);
+}
+
+.hero {
+  padding: 2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-2), #0ea5e9);
+  border: none;
+  box-shadow: 0 12px 24px rgba(29, 78, 216, 0.28);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(135deg, #1e40af, #0284c7);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent), #f97316);
+  color: #fff;
+  border: none;
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+  color: #fff;
+  background: linear-gradient(135deg, #ea580c, #fb923c);
+}
+
+.user-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-weight: 600;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  border-bottom: 1px solid rgba(16, 32, 51, 0.12);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(16, 32, 51, 0.68);
+}
+
+.table tbody td {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.info-box {
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  display: grid;
+  gap: 0.3rem;
+}
+
+.info-box .label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(16, 32, 51, 0.6);
+}
+
+.form-control,
+.form-select {
+  min-height: 3rem;
+  border-radius: 0.9rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: rgba(29, 78, 216, 0.45);
+  box-shadow: 0 0 0 0.24rem rgba(29, 78, 216, 0.12);
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 1.5rem;
+  }
+}

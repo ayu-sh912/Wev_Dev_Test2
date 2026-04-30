@@ -1,0 +1,13 @@
+<%- include('../partials/head', { title }) %>
+<%- include('../partials/navbar') %>
+
+<main class="container py-5">
+  <section class="panel card p-5 text-center">
+    <p class="eyebrow mb-2">Error</p>
+    <h1 class="h3 mb-3">Not Found</h1>
+    <p class="text-secondary mb-4"><%= message %></p>
+    <a href="/guns" class="btn btn-primary">Back to Inventory</a>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>

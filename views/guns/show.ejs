@@ -1,0 +1,44 @@
+<%- include('../partials/head', { title }) %>
+<%- include('../partials/navbar') %>
+
+<main class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <section class="panel card p-4 p-md-5">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
+          <div>
+            <p class="eyebrow mb-2">Gun details</p>
+            <h1 class="h2 mb-1"><%= gun.gunName %></h1>
+            <p class="text-secondary mb-0">Created <%= gun.createdAt.toLocaleString() %></p>
+          </div>
+          <span class="badge <%= gun.automatic ? 'text-bg-success' : 'text-bg-secondary' %> px-3 py-2"><%= gun.automatic ? 'Automatic' : 'Manual' %></span>
+        </div>
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="info-box">
+              <span class="label">Price</span>
+              <strong>$<%= Number(gun.price).toFixed(2) %></strong>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="info-box">
+              <span class="label">Updated</span>
+              <strong><%= gun.updatedAt.toLocaleString() %></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2">
+          <a href="/guns/<%= gun._id %>/edit" class="btn btn-warning">Edit</a>
+          <form action="/guns/<%= gun._id %>/delete" method="POST" onsubmit="return confirm('Delete this gun?');">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+          <a href="/guns" class="btn btn-outline-secondary">Back to list</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

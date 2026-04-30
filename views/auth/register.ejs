@@ -1,0 +1,81 @@
+<%- include('../partials/head', { title }) %>
+<%- include('../partials/navbar') %>
+
+<main class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-xl-7 col-lg-8">
+      <section class="panel card p-4 p-md-5">
+        <div class="mb-4">
+          <p class="eyebrow mb-2">Create account</p>
+          <h1 class="h3 mb-2">Register</h1>
+          <p class="text-secondary mb-0">Create a profile before entering the inventory area.</p>
+        </div>
+
+        <% if (error) { %>
+          <div class="alert alert-danger"><%= error %></div>
+        <% } %>
+
+        <form action="/register" method="POST" class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="name">Name</label>
+              <input class="form-control" type="text" id="name" name="name" required value="<%= formData.name || '' %>" />
+              <div class="invalid-feedback">Name is required.</div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="age">Age</label>
+              <input class="form-control" type="number" id="age" name="age" min="0" max="120" required value="<%= formData.age || '' %>" />
+              <div class="invalid-feedback">Age is required.</div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="phoneNumber">Phone Number</label>
+              <input class="form-control" type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10,15}" required value="<%= formData.phoneNumber || '' %>" />
+              <div class="invalid-feedback">Enter a phone number with 10 to 15 digits.</div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="gender">Gender</label>
+              <select class="form-select" id="gender" name="gender" required>
+                <option value="" disabled <%= !formData.gender ? 'selected' : '' %>>Choose...</option>
+                <option value="Male" <%= formData.gender === 'Male' ? 'selected' : '' %>>Male</option>
+                <option value="Female" <%= formData.gender === 'Female' ? 'selected' : '' %>>Female</option>
+                <option value="Other" <%= formData.gender === 'Other' ? 'selected' : '' %>>Other</option>
+              </select>
+              <div class="invalid-feedback">Select a gender.</div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="isLegal" name="isLegal" <%= formData.isLegal ? 'checked' : '' %> required />
+                <label class="form-check-label" for="isLegal">I confirm the information is legal and accurate.</label>
+                <div class="invalid-feedback">You must confirm this field.</div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="password">Password</label>
+              <input class="form-control" type="password" id="password" name="password" minlength="6" required />
+              <div class="invalid-feedback">Password must be at least 6 characters.</div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="confirmPassword">Confirm Password</label>
+              <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" minlength="6" required />
+              <div class="invalid-feedback">Please confirm your password.</div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary mt-4 w-100">Register</button>
+        </form>
+
+        <p class="mt-3 mb-0 text-center text-secondary">
+          Already have an account? <a href="/login">Login here</a>.
+        </p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

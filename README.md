@@ -22,6 +22,6 @@ Express + MongoDB + Passport app that matches the provided schema and routing re
 
 ```env
 PORT=3000
-MONGODB_URI=mongodb://127.0.0.1:27017/gun_inventory
+MONGODB_URI=mongodb://127.0.0.1:27017/your_database_name
 SESSION_SECRET=replace_this_with_a_long_random_string
 ```
